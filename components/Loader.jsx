@@ -6,6 +6,8 @@ export default function Loader({ onComplete }) {
   const [progress, setProgress] = useState(0);
   const [showLoader, setShowLoader] = useState(true);
   const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
+  // NEW STATE: To store initial random values for particles on client-side
+  const [particleInitialPositions, setParticleInitialPositions] = useState([]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -13,6 +15,14 @@ export default function Loader({ onComplete }) {
         width: window.innerWidth,
         height: window.innerHeight,
       });
+
+      // Generate initial random positions for particles ONLY on the client
+      const initialPositions = Array.from({ length: 80 }).map(() => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        scale: Math.random() * 0.7 + 0.3,
+      }));
+      setParticleInitialPositions(initialPositions);
 
       const handleResize = () => {
         setWindowDimensions({
@@ -26,7 +36,7 @@ export default function Loader({ onComplete }) {
         window.removeEventListener('resize', handleResize);
       };
     }
-  }, []);
+  }, []); // Empty dependency array means this runs once on mount (client-side)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -58,27 +68,27 @@ export default function Loader({ onComplete }) {
 
           {/* More intense background digital static/grid */}
           <div className="absolute inset-0 z-0 opacity-10"
-               style={{
-                 backgroundImage: 'linear-gradient(to right, #1C1C2B 1px, transparent 1px), linear-gradient(to bottom, #1C1C2B 1px, transparent 1px)',
-                 backgroundSize: '30px 30px', // Smaller grid for more density
-                 animation: 'gridFade 3s infinite ease-in-out alternate', // Faster fade
-                 willChange: 'opacity'
-               }}/>
+            style={{
+              backgroundImage: 'linear-gradient(to right, #1C1C2B 1px, transparent 1px), linear-gradient(to bottom, #1C1C2B 1px, transparent 1px)',
+              backgroundSize: '30px 30px', // Smaller grid for more density
+              animation: 'gridFade 3s infinite ease-in-out alternate', // Faster fade
+              willChange: 'opacity'
+            }} />
 
           {/* Floating Particles (More dense, slightly faster) */}
-          {[...Array(80)].map((_, i) => ( // More particles
+          {particleInitialPositions.map((pos, i) => ( // Use the state variable for initial positions
             <motion.div
               key={i}
               className="absolute w-1 h-1 bg-neon-cyan rounded-full will-change-transform-opacity"
               initial={{
-                x: windowDimensions.width ? Math.random() * windowDimensions.width : 0,
-                y: windowDimensions.height ? Math.random() * windowDimensions.height : 0,
+                x: pos.x, // Use pre-calculated client-side random value
+                y: pos.y, // Use pre-calculated client-side random value
                 opacity: 0,
-                scale: Math.random() * 0.7 + 0.3, // Slightly larger particles
+                scale: pos.scale, // Use pre-calculated client-side random value
               }}
               animate={{
-                y: [null, Math.random() * -300 - 100, Math.random() * -600 - 200],
-                x: [null, Math.random() * 150 - 75, Math.random() * 300 - 150],
+                y: [null, Math.random() * -300 - 100, Math.random() * -600 - 200], // These can remain random as they are part of ongoing animation, not initial state
+                x: [null, Math.random() * 150 - 75, Math.random() * 300 - 150], // Same here
                 opacity: [0, 0.7, 0], // More opaque
                 scale: [null, Math.random() * 1 + 0.5, Math.random() * 1.5 + 0.8],
               }}

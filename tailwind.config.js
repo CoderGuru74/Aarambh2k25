@@ -42,6 +42,7 @@ module.exports = {
       willChange: {
         'transform-opacity': 'transform, opacity',
         'all': 'all',
+        'width': 'width', // Added for text-reveal animation
       },
       keyframes: {
         glitch: {
@@ -152,6 +153,15 @@ module.exports = {
           '0%, 100%': { borderColor: 'transparent' },
           '50%': { borderColor: 'white' }
         },
+        // ADDED: New keyframes for background animations
+        'code-flow': {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+        'digital-wave': {
+          '0%, 100%': { transform: 'scale(1) translateX(0%)', opacity: '0.15' },
+          '50%': { transform: 'scale(1.05) translateX(5%)', opacity: '0.25' },
+        },
       },
       animation: {
         glitch: 'glitch 0.8s infinite',
@@ -167,7 +177,7 @@ module.exports = {
         'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
         'rotate-y-fwd': 'rotate-y-fwd 6s ease-in-out infinite',
         'flip-vertical-right': 'flip-vertical-right 0.6s ease-in-out both',
-        // NEW ANIMATIONS
+        // Existing NEW ANIMATIONS (ensure these are present)
         flicker: 'flicker 3s infinite step-end', // Use step-end for 'on/off' effect
         'scanline-pulse': 'scanline-pulse 10s ease-in-out infinite alternate',
         'digital-flow-x': 'digital-flow-x 30s linear infinite',
@@ -175,6 +185,9 @@ module.exports = {
         'pulse-light': 'pulse-light 4s ease-in-out infinite alternate',
         'border-spin': 'border-spin 8s linear infinite',
         'text-type': 'text-reveal 2s steps(40, end), text-blink-caret .75s step-end infinite', // For 2K25
+        // ADDED: New animations for background effects
+        'code-flow': 'code-flow 30s linear infinite',
+        'digital-wave': 'digital-wave 10s ease-in-out infinite alternate',
       }
     },
   },

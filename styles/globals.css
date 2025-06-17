@@ -1,175 +1,186 @@
-/* Import Google Fonts - Ensure these are linked in your Head component or _document.js as well */
-@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Roboto+Mono:wght@300;400;500;700&display=swap');
-
+/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles for the entire application */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto Mono', monospace; /* Default body font */
-  background-color: #0D0D1A; /* Ensure background matches dark-bg from tailwind.config.js */
-  color: #E0E0E0; /* Default text color, slightly off-white */
-  overflow-x: hidden; /* Prevent horizontal scroll from animations */
-}
-
-/* Custom Utilities (defined in tailwind.config.js, but also added here for clarity if needed) */
-@layer utilities {
-  .text-shadow-neon {
-    text-shadow: 0 0 5px var(--tw-neon-cyan), 0 0 10px var(--tw-neon-cyan), 0 0 15px var(--tw-neon-cyan);
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
+  body {
+    @apply bg-midnight-code text-white font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none; /* Hide default cursor */
+  }
+}
+
+@layer components {
   .text-shadow-strong-neon {
-    text-shadow: 0 0 8px var(--tw-neon-cyan), 0 0 15px var(--tw-neon-cyan), 0 0 25px var(--tw-neon-cyan), 0 0 40px var(--tw-neon-cyan);
+    text-shadow:
+      0 0 5px var(--neon-cyan),
+      0 0 10px var(--neon-pink),
+      0 0 15px var(--neon-yellow);
+  }
+  .text-shadow-subtle-neon {
+    text-shadow:
+      0 0 2px rgba(0, 191, 255, 0.5),
+      0 0 4px rgba(138, 43, 226, 0.5);
+  }
+  .shadow-card-glow {
+    box-shadow:
+      0 0 10px rgba(0, 191, 255, 0.3), /* neon-cyan */
+      0 0 20px rgba(138, 43, 226, 0.2); /* neon-purple */
+  }
+  .shadow-card-glow-pink {
+    box-shadow:
+      0 0 10px rgba(255, 0, 127, 0.3), /* neon-pink */
+      0 0 20px rgba(255, 255, 0, 0.2); /* neon-yellow */
   }
 }
 
-/* Variables for custom colors (if you want to use them outside of Tailwind utility classes) */
+/* Custom CSS Variables (optional, but good for consistency) */
 :root {
-  --tw-dark-bg: #0D0D1A;
-  --tw-dark-card: #1C1C2B;
-  --tw-neon-cyan: #00BFFF;
-  --tw-neon-purple: #8A2BE2;
-  --tw-neon-pink: #FF1493;
-  --tw-neon-yellow: #FFFF00;
-  --tw-lime-green: #39FF14;
-  /* Add other colors if directly referenced in CSS without theme() */
+  --midnight-code: #0D0D1A; /* Dark background */
+  --dark-bg: #1A1A2E;     /* Slightly lighter dark bg */
+  --dark-card: #1C1C2B;   /* Card backgrounds */
+  --neon-cyan: #00BFFF;   /* Primary accent */
+  --neon-purple: #8A2BE2; /* Secondary accent */
+  --neon-pink: #FF007F;   /* Tertiary accent */
+  --neon-yellow: #FFFF00; /* Highlight */
+  --lime-green: #39FF14;  /* Another accent */
 }
 
+/* Apply variables to Tailwind config if not already done */
+/* In tailwind.config.js:
+  theme: {
+    extend: {
+      colors: {
+        'midnight-code': 'var(--midnight-code)',
+        'dark-bg': 'var(--dark-bg)',
+        'dark-card': 'var(--dark-card)',
+        'neon-cyan': 'var(--neon-cyan)',
+        'neon-purple': 'var(--neon-purple)',
+        'neon-pink': 'var(--neon-pink)',
+        'neon-yellow': 'var(--neon-yellow)',
+        'lime-green': 'var(--lime-green)',
+      },
+      fontFamily: {
+        body: ['Inter', 'sans-serif'], // Or whatever your main body font is
+        heading: ['Montserrat', 'sans-serif'], // Or whatever your heading font is
+        mono: ['Fira Code', 'monospace'], // For code-like elements
+      },
+    },
+  },
+*/
 
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 8px;
+
+/* Keyframe Animations */
+
+/* Global Grid Fade */
+@keyframes gridFade {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.2; }
+  100% { opacity: 0.5; }
 }
 
-::-webkit-scrollbar-track {
-  background: #1a1a2e; /* Darker track */
+/* Global Scanline Pulse */
+@keyframes scanline-pulse {
+  0% { background-position: 0 0; opacity: 0.05; }
+  50% { background-position: 0 100%; opacity: 0.1; }
+  100% { background-position: 0 0; opacity: 0.05; }
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #00BFFF, #8A2BE2); /* Neon gradient thumb */
-  border-radius: 4px;
+/* Global Code Flow */
+@keyframes code-flow {
+  from { transform: translateX(0) translateY(0); }
+  to { transform: translateX(-100px) translateY(-100px); }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #00CFFF, #9A3BE2); /* Slightly brighter on hover */
+/* Hero Section Pulsing Spheres */
+@keyframes fadeZoomRotate {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.05; }
+  50% { transform: scale(1.1) rotate(180deg); opacity: 0.1; }
+  100% { transform: scale(0.8) rotate(360deg); opacity: 0.05; }
 }
 
-/* Custom Cursor */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px; /* Size of the custom cursor */
-  height: 20px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.6); /* White with transparency */
-  border: 1px solid rgba(0, 191, 255, 0.8); /* Neon cyan border */
-  pointer-events: none; /* Allows clicks to pass through */
-  transform: translate(-50%, -50%); /* Center the cursor */
-  transition: transform 0.1s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
-  z-index: 9999; /* Ensure it's on top */
-  mix-blend-mode: exclusion; /* Makes it visible on any background */
-  box-shadow: 0 0 5px rgba(0, 191, 255, 0.5), 0 0 15px rgba(0, 191, 255, 0.2);
+/* Hero Section Digital Wave */
+@keyframes digital-wave {
+  0% { clip-path: polygon(0% 20%, 100% 0%, 100% 80%, 0% 100%); }
+  50% { clip-path: polygon(0% 0%, 100% 20%, 100% 100%, 0% 80%); }
+  100% { clip-path: polygon(0% 20%, 100% 0%, 100% 80%, 0% 100%); }
 }
 
-.custom-cursor.clicked {
-  transform: translate(-50%, -50%) scale(0.8);
-  background-color: rgba(0, 191, 255, 0.8); /* Brighter cyan on click */
-  border-color: rgba(255, 255, 255, 0.8);
+/* Hero Section Text Typing Effect */
+@keyframes text-type {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
-/* Hide default cursor */
-body.cursor-none {
-  cursor: none;
+/* Hero Section Text Caret Blink */
+@keyframes text-blink-caret {
+  from, to { border-right-color: transparent; }
+  50% { border-right-color: white; }
 }
 
-/* Loader Styles */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0D0D1A; /* Match your dark background */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  opacity: 1;
-  transition: opacity 0.8s ease-out;
+/* About Section Radial Pulse */
+@keyframes radialPulse {
+  0% { transform: scale(0.8); opacity: 0.15; }
+  50% { transform: scale(1.2); opacity: 0.25; }
+  100% { transform: scale(0.8); opacity: 0.15; }
 }
 
-.loader-container.fade-out {
-  opacity: 0;
-  pointer-events: none; /* Allows interaction with content underneath */
+/* About/Schedule Section Floating Particles */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-5px) translateX(5px); }
+  50% { transform: translateY(0) translateX(0); }
+  75% { transform: translateY(5px) translateX(-5px); }
+  100% { transform: translateY(0) translateX(0); }
 }
 
-.loader-logo {
-  font-size: 5rem;
-  font-weight: bold;
-  color: transparent;
-  background: linear-gradient(to right, #00BFFF, #39FF14, #FFFF00);
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: glow 1.5s infinite alternate, scalePulse 1.5s infinite alternate;
-  margin-bottom: 2rem;
+/* General Neon Pulse */
+@keyframes pulseNeon {
+  0% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.05); }
+  100% { opacity: 0.1; transform: scale(1); }
 }
 
-.loader-progress-bar {
-  width: 200px;
-  height: 8px;
-  background-color: #1a1a2e;
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
+/* Light Pulse for Events/General */
+@keyframes pulse-light {
+  0% { opacity: 0.05; transform: scale(0.9); }
+  50% { opacity: 0.15; transform: scale(1.1); }
+  100% { opacity: 0.05; transform: scale(0.9); }
 }
 
-.loader-progress-fill {
-  height: 100%;
-  background: linear-gradient(to right, #00BFFF, #8A2BE2);
-  width: 0%; /* Initial width */
-  transition: width 0.3s ease-out;
+/* Digital Flow X (for Schedule/Registration) */
+@keyframes digital-flow-x {
+  from { background-position-x: 0; }
+  to { background-position-x: 100%; }
 }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
-  }
-  to {
-    text-shadow: 0 0 10px #00BFFF, 0 0 20px #39FF14, 0 0 30px #FFFF00;
-  }
+/* Digital Flow Y (for Schedule) */
+@keyframes digital-flow-y {
+  from { background-position-y: 0; }
+  to { background-position-y: 100%; }
 }
 
-@keyframes scalePulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+/* Footer Neon Border Pulse */
+@keyframes neon-border-pulse {
+  0% { border-color: rgba(0, 191, 255, 0.2); }
+  50% { border-color: rgba(138, 43, 226, 0.5); }
+  100% { border-color: rgba(0, 191, 255, 0.2); }
 }
 
-/* Glitch Animation for hero text (if not fully handled by Framer Motion) */
-/* The glitch animation itself is in tailwind.config.js now,
-   but if you had custom glitch effects here, you'd retain them. */
-
-/* Cool Glitch Text Container (for Navbar Brand or other uses) */
-.cool-glitch-text-container {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  padding: 0 25px; /* Adjust padding for text inside */
-  background-color: transparent; /* Text container is transparent */
-  color: theme('colors.white'); /* FIXED: Changed from moodi-text to white */
-  font-weight: 600;
-  text-decoration: none;
+/* Section Gradient Flow */
+@keyframes gradientFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
-/* This assumes the actual glitch animation is applied via Tailwind's `animate-glitch` */
-/* .cool-glitch-text-container .glitch-text {
-  // If you had pseudo-elements for glitch, they'd go here
-} */
+/* Utility for will-change property */
+.will-change-transform { will-change: transform; }
+.will-change-opacity { will-change: opacity; }
+.will-change-transform-opacity { will-change: transform, opacity; }
+.will-change-width { will-change: width; }
+.will-change-all { will-change: transform, opacity, color; } /* For hover effects */
