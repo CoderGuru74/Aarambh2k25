@@ -5,8 +5,14 @@ export default function CustomCursor() {
   const [isClicked, setIsClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsMobile(isTouchDevice);
+    if (isTouchDevice) return; // Exit if mobile
+
     let animationFrameId;
 
     const updateCursorPosition = (e) => {
@@ -59,6 +65,9 @@ export default function CustomCursor() {
       clearTimeout(timeoutId);
     };
   }, []);
+
+  // Don't render cursor on mobile devices
+  if (isMobile) return null;
 
   return (
     <div

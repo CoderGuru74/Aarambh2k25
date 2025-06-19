@@ -25,8 +25,12 @@ const Navbar = () => {
         {/* Logo/Brand link */}
         <Link
           href="/"
-          className="text-xl sm:text-2xl font-bold text-neon-yellow hover:text-white transition-colors duration-300 whitespace-nowrap max-w-full overflow-visible"
-          style={{ letterSpacing: '0.02em' }}
+          className="font-bold text-neon-yellow hover:text-white transition-colors duration-300 whitespace-nowrap max-w-full overflow-visible px-2"
+          style={{
+            fontSize: 'clamp(1.2rem, 6vw, 2rem)', // Responsive font size
+            letterSpacing: '0.05em',
+            fontFamily: 'inherit',
+          }}
           data-interactive="true"
         >
           Aarambh 2K25

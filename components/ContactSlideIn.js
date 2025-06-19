@@ -1,20 +1,20 @@
 // components/ContactSlideIn.js
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, AtSign, X } from 'lucide-react'; // Import necessary icons
+import { Mail, AtSign, X } from 'lucide-react';
 
 const ContactSlideIn = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-end justify-center pointer-events-none" // Use pointer-events-none on parent
+          className="fixed inset-0 z-50 flex items-end justify-center pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          {/* Overlay - allows clicks to close the panel */}
+          {/* Overlay */}
           <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm pointer-events-auto" // Re-enable pointer events on overlay
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm pointer-events-auto"
             onClick={onClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -23,7 +23,7 @@ const ContactSlideIn = ({ isOpen, onClose }) => {
 
           {/* Slide-in Panel */}
           <motion.div
-            className="relative w-full max-w-lg bg-dark-card rounded-t-2xl p-8 shadow-2xl border-t-2 border-neon-cyan flex flex-col items-center text-center space-y-6 pointer-events-auto" // Re-enable pointer events on panel
+            className="relative w-full max-w-lg bg-dark-card rounded-t-2xl p-8 shadow-2xl border-t-2 border-neon-cyan flex flex-col items-center text-center space-y-6 pointer-events-auto"
             initial={{ y: '100%' }}
             animate={{ y: '0%' }}
             exit={{ y: '100%' }}
@@ -44,7 +44,7 @@ const ContactSlideIn = ({ isOpen, onClose }) => {
             <div className="flex items-center space-x-3 text-2xl text-gray-200 group">
               <AtSign size={32} className="text-neon-cyan group-hover:scale-110 transition-transform" />
               <a
-                href="https://twitter.com/aarambh2k25" // You can change this to Instagram or other social media
+                href="https://twitter.com/aarambh2k25"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-neon-cyan transition-colors duration-200"
