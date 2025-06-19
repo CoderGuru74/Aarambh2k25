@@ -545,16 +545,25 @@ export default function Home() {
                   },
                 }}
               >
-                <MoodyText
-                  text="AARAMBH"
-                  className="text-8xl md:text-9xl mb-4"
-                  glitch={true}
-                  glitchClass="text-neon-pink"
-                  shadowClass="text-shadow-strong-neon"
-                  flicker={true}
-                  gradientClass="bg-gradient-to-r from-neon-pink to-neon-pink"
-                  style={{ color: '#FF007F' }}
-                />
+<div className="w-full flex justify-center overflow-x-auto">
+  <MoodyText
+    text="AARAMBH"
+    className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-4 leading-tight tracking-wide max-w-full overflow-visible"
+    glitch={true}
+    glitchClass="text-neon-pink"
+    shadowClass="text-shadow-strong-neon"
+    flicker={true}
+    gradientClass="bg-gradient-to-r from-neon-pink to-neon-pink"
+    style={{
+      color: '#FF007F',
+      wordBreak: 'keep-all',
+      whiteSpace: 'nowrap',
+      letterSpacing: '0.03em'
+    }}
+  />
+</div>
+
+
 
                 <motion.h2
                   className="text-3xl md:text-4xl font-bold text-neon-yellow font-mono mb-8 relative inline-block overflow-hidden whitespace-nowrap text-shadow-subtle-neon will-change-width"
