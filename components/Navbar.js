@@ -1,4 +1,3 @@
-// components/Navbar.js
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -27,9 +26,11 @@ const Navbar = () => {
           href="/"
           className="font-bold text-neon-yellow hover:text-white transition-colors duration-300 whitespace-nowrap max-w-full overflow-visible px-2"
           style={{
-            fontSize: 'clamp(1.2rem, 6vw, 2rem)', // Responsive font size
-            letterSpacing: '0.05em',
+            fontSize: 'clamp(1.1rem, 7vw, 2rem)',
+            letterSpacing: '0.04em',
             fontFamily: 'inherit',
+            lineHeight: 1.1,
+            display: 'inline-block'
           }}
           data-interactive="true"
         >
