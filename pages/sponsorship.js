@@ -1,5 +1,3 @@
-// You can place this directly inside your Home() component in /pages/index.js
-
 <section id="sponsors" className="bg-dark-bg py-12 px-4">
   <div className="container mx-auto">
     <h2 className="text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-pink to-neon-yellow bg-clip-text text-transparent
