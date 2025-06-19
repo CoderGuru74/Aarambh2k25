@@ -25,7 +25,8 @@ const Navbar = () => {
         {/* Logo/Brand link */}
         <Link
           href="/"
-          className="text-2xl font-bold text-neon-yellow hover:text-white transition-colors duration-300"
+          className="text-xl sm:text-2xl font-bold text-neon-yellow hover:text-white transition-colors duration-300 whitespace-nowrap max-w-full overflow-visible"
+          style={{ letterSpacing: '0.02em' }}
           data-interactive="true"
         >
           Aarambh 2K25
