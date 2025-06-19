@@ -291,7 +291,7 @@ export default function Home() {
   const SpeakerCard = ({ speaker, index }) => (
     <motion.div
       className="bg-dark-card p-6 rounded-lg border border-neon-purple/30 text-center shadow-lg transition-all duration-300 hover:border-neon-pink hover:shadow-card-glow-pink will-change-transform-opacity"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -585,7 +585,7 @@ export default function Home() {
                 <motion.p
                   className="text-xl md:text-2xl text-gray-300 font-body mb-8 max-w-2xl mx-auto leading-relaxed will-change-transform-opacity"
                   variants={{
-                    hidden: { opacity: 0, y: 50 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 10, delay: 0.8 } },
                   }}
                 >
@@ -597,7 +597,7 @@ export default function Home() {
 
                 <motion.div
                   variants={{
-                    hidden: { opacity: 0, y: 50 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 10, delay: 1.0 } },
                   }}
                 >
@@ -641,10 +641,11 @@ export default function Home() {
                 <motion.h2
                   className="relative z-10 text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent
                                   pb-4 border-b-2 border-neon-cyan/50 text-shadow-subtle-neon will-change-transform-opacity"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.8 }}
+                                  initial={{ opacity: 0, y: 30 }}
+                                  whileInView={{ opacity: 1, y: 0 }}
+                                  viewport={{ once: true, amount: 0.1 }}
+                                  transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                  style={{ willChange: 'transform, opacity' }}
                 >
                   About Aarambh 2K25
                   <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full"></span>
@@ -682,10 +683,11 @@ export default function Home() {
               <motion.h2
                 className="text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-cyan to-neon-yellow bg-clip-text text-transparent
                                   pb-4 border-b-2 border-neon-yellow/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8 }}
+                                  initial={{ opacity: 0, y: 30 }}
+                                  whileInView={{ opacity: 1, y: 0 }}
+                                  viewport={{ once: true, amount: 0.1 }}
+                                  transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                  style={{ willChange: 'transform, opacity' }}
               >
                 Our Esteemed Speakers
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-yellow rounded-full"></span>
@@ -746,10 +748,11 @@ export default function Home() {
               <motion.h2
                 className="text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-pink to-neon-yellow bg-clip-text text-transparent
                                 pb-4 border-b-2 border-neon-cyan/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8 }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                style={{ willChange: 'transform, opacity' }}
               >
                 Our Stellar Events
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-pink to-neon-yellow rounded-full"></span>
@@ -852,10 +855,11 @@ export default function Home() {
               <motion.h2
                 className="text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent
                                 pb-4 border-b-2 border-neon-purple/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                style={{ willChange: 'transform, opacity' }}
               >
                 Fest Schedule
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full"></span>
@@ -922,10 +926,11 @@ export default function Home() {
               <motion.h2
                 className="text-5xl font-bold font-heading mb-12 bg-gradient-to-r from-neon-yellow to-neon-pink bg-clip-text text-transparent
                                 pb-4 border-b-2 border-neon-pink/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                style={{ willChange: 'transform, opacity' }}
               >
                 Join the Fest!
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-yellow to-neon-pink rounded-full"></span>
@@ -964,10 +969,11 @@ export default function Home() {
                 <motion.h2
                     className="text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-pink to-neon-cyan bg-clip-text text-transparent
                                 pb-4 border-b-2 border-neon-cyan/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.8 }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                style={{ willChange: 'transform, opacity' }}
                 >
                     Frequently Asked Questions
                     <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-pink to-neon-cyan rounded-full"></span>
@@ -985,10 +991,11 @@ export default function Home() {
   <div className="container mx-auto">
     <h2 className="text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-pink to-neon-yellow bg-clip-text text-transparent
                     pb-4 border-b-2 border-neon-cyan/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                    style={{ willChange: 'transform, opacity' }}
     >
         Our Esteemed Sponsors
         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-pink to-neon-yellow rounded-full"></span>
@@ -1040,10 +1047,11 @@ export default function Home() {
               <motion.h2
                 className="text-5xl font-bold font-heading text-center mb-16 bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent
                                 pb-4 border-b-2 border-neon-purple/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8 }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                style={{ willChange: 'transform, opacity' }}
               >
                 Meet the Team
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full"></span>
@@ -1071,10 +1079,11 @@ export default function Home() {
                 <motion.h2
                     className="text-4xl md:text-5xl font-bold font-heading mb-8 bg-gradient-to-r from-neon-yellow to-lime-green bg-clip-text text-transparent
                                 pb-3 border-b-2 border-lime-green/50 relative z-10 text-shadow-subtle-neon will-change-transform-opacity"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.8 }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                                style={{ willChange: 'transform, opacity' }}
                 >
                     Stay Connected
                     <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-20 h-1 bg-gradient-to-r from-neon-yellow to-lime-green rounded-full"></span>
@@ -1084,10 +1093,11 @@ export default function Home() {
                 </p>
                 <motion.form
                     className="flex flex-col md:flex-row justify-center items-center gap-4 max-w-xl mx-auto relative z-10"
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                    style={{ willChange: 'transform, opacity' }}
                 >
                     <input
                         type="email"
