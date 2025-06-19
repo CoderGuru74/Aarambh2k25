@@ -935,10 +935,11 @@ export default function Home() {
                 Secure your spot and be part of this unforgettable journey. Early bird registration coming soon!
               </p>
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ delay: 0, duration: 0.25, ease: "easeOut" }}
+                style={{ willChange: 'transform, opacity' }}
               >
                 <AnimatedButton href="#" variant="secondary" data-interactive="true">
                   Secure Your Spot
